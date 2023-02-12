@@ -1,4 +1,4 @@
-const { calc } = require('./calculator');
+const { calc } = require('./1.calcTest');
 console.log(calc(5, 5));
 
 const path = require('path');
