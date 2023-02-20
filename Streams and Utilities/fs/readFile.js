@@ -9,18 +9,24 @@ const text = fs.readFileSync(filePath, { encoding: 'utf-8' });
 console.log(text);
 
 
-// Asynchronous reading from file
-fs.readFile(filePath, { encoding: 'utf-8' }, (err, data) => {
+// Asynchronous reading from with callback
+fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err) {
         return;
     }
 
     console.log(data);
-});+
+});
 
 
 // Asynchronous reading with promises
-fsp.readFile(filePath, { encoding: 'utf-8' })
+fsp.readFile(filePath, 'utf-8')
     .then((result) => {
          console.log(result);
-    });
+});
+
+// async/await 
+(async function start() {
+    const data = await fsp.readFile(filePath, 'utf-8');
+    console.log(data);
+})();
