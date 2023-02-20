@@ -18,31 +18,25 @@ const server = http.createServer((req, res) => {
 
     if (req.url == '/') {
         res.write(homePage);
-        
     } else if (req.url == '/css/site.css') {
         res.writeHead(200, {
             'Content-Type': 'text/css',
         });
         res.write(siteCss);
-
     } else if (isEditById(req.url)) {
         let catId = req.url.split('/')[2];
         let cat = cats.find((x) => x.id == catId);
 
         res.write(editPage(cat));
-
     } else if (isDeleteById(req.url)) {
         const catId = req.url.split('/')[2];
         let cat = cats.find((x) => x.id == catId);
 
         res.write(shelterCatPage(cat));
-
     } else if (req.url == '/cats/add-breed') {
         res.write(addBreedPage);
-
     } else if (req.url == '/cats/add-cat') {
         res.write(addCatPage);
-
     } else {
         res.write(`
             <h1>Not found</h1>
@@ -53,7 +47,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(5000);
-console.log('Server is running on port 5000...');
+console.log('Server is running on port 5000... :)');
 
 function isEditById(url) {
     return /cats\/\d+\/edit/.test(url);

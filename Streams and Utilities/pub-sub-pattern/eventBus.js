@@ -1,23 +1,30 @@
+const { EventEmitter } = require("stream");
+
 const events = {};
 
-function subscribe(eventName, callback) {
-    if (!events[eventName]) {
-        events[eventName] = [];
-    }
+// function subscribe(eventName, callback) {
+//     if (!events[eventName]) {
+//         events[eventName] = [];
+//     }
 
-    events[eventName].push(callback);
-}
+//     events[eventName].push(callback);
+// }
 
-function publish(eventName, data) {
-    if (!events[eventName]) {
-        events[eventName] = [];
-    }
-    events[eventName].forEach((callback) => callback(data));
-}
+// function publish(eventName, data) {
+//     const currentSubscribers = events[eventName];
 
-const eventBus = {
-    subscribe,
-    publish,
-};
+//     if (currentSubscribers) {
+//         currentSubscribers.forEach((callback) => callback(data));
+//     }
+// }
 
-module.exports = eventBus;
+// const eventBus = {
+//     subscribe,
+//     publish,
+// };
+
+// module.exports = eventBus;
+
+const emitter = new EventEmitter();
+module.exports = emitter;
+
