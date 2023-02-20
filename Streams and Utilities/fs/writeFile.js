@@ -1,5 +1,7 @@
 const fs = require('fs');
 
-fs.writeFile('./output.txt', 'Pesho', () => {
+const path = require('path');
+
+fs.writeFile(path.resolve(__dirname, './output.txt'), 'Pesho', () => {
     console.log('File Created');
 });
