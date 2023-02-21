@@ -3,49 +3,61 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send(`
-        <h1>Home page</h1>
-        <a href="/">Home</a>
-        <a href="/cats">Cats</a>
-        <a href="/dogs">Dogs</a>
-        `);
+    res.send(htmlTemplate('Home page'));
 });
 
 app.get('/cats', (req, res) => {
-    res.send(`
-        <h1>Cats page</h1>
-        <a href="/">Home</a>
-        <a href="/cats">Cats</a>
-        <a href="/dogs">Dogs</a>
-        `);
+    res.send(htmlTemplate('Cats page'));
+});
+
+app.get('/cats/1', (req, res) => {
+    res.download('./barni.jpg');
 });
 
 app.get('/cats/:catId', (req, res) => {
+    let { catId } = req.params;
+
     res.send(`
-        <h1>Cat Details</h1>
-        <a href="/">Home</a>
-        <a href="/cats">Cats</a>
-        <a href="/dogs">Dogs</a>
-        <p>I'm a very angry cat!!</p>
+        ${htmlTemplate('Cat Details')}
+              <p>I'm a very angry cat with id ${catId}!!</p>
         `);
 });
 
 app.get('/dogs', (req, res) => {
-    res.send(`
-        <h1>Dogs page</h1>
-        <a href="/">Home</a>
-        <a href="/cats">Cats</a>
-        <a href="/dogs">Dogs</a>
-    `);
+    res.send(htmlTemplate('Dogs Page'));
 });
 
 app.post('/cats', (req, res) => {
-    console.log(req);
     res.send(`Nice post!`);
+});
+
+app.get('/json', (req, res) => {
+    res.json({ ok: true, message: 'hello from json!!!' });
+});
+
+app.get('/redirect', (req, res) => {
+    res.redirect('/cats');
 });
 
 app.get('*', (req, res) => {
     res.send('404 Not Found');
 });
 
+
 app.listen(3000, () => console.log('Server is listening on port 5000...'));
+
+function htmlTemplate(title) {
+    return `
+        <h1>${title}</h1>
+        <ul>    
+            <li><a href="/">Home</a></li>
+            <li><a href="/cats">Cats</a></li>
+            <li><a href="/dogs">Dogs</a></li>
+            <li><a href="/cats/1">Check out Barni - the cool cat</a></li>
+        </ul>
+        
+        
+        
+       
+    `;
+}
