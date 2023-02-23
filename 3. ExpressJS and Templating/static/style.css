@@ -1,0 +1,39 @@
+body {
+    background: #ddd;
+}
+
+#content {
+    background: #fff;
+    max-width: 980px;
+    margin: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    background: cadetblue;
+    padding: 0.25em 0.5em;
+    color: #fff;
+}
+
+nav a:hover, nav a:focus {
+    background-color: blue;
+}
+
+#main {
+    padding: 2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+label span {
+    display: inline-block;
+    width: 3rem;
+}
