@@ -1,0 +1,31 @@
+@import './reset.css';
+@import './layout.css';
+@import './typography.css';
+@import './theme.css';
+
+body {
+    background: var(--background-primary);
+}
+
+.primary-nav {
+    background: var(--caramel);
+    padding: 1rem 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.nav-list li {
+    background: var(--red);
+    padding: 0.3em 1em;
+    border-radius: 5px;
+}
+
+.nav-list a {
+    font-size: 1.5rem;
+    color: var(--white);
+}
