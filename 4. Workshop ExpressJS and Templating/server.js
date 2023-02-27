@@ -1,6 +1,8 @@
 const express = require('express');
 const hbr = require('express-handlebars');
 
+const config = require('./config');
+
 // Controllers
 const homeController = require('./controllers/homeController');
 const catalogController = require('./controllers/catalogController');
@@ -24,6 +26,6 @@ app.use('/catalog', catalogController);
 app.use('/host', hostController);
 
 
-app.listen(3000, () => {
-    console.log('Server is listening on port 3000...');
+app.listen(config.PORT, () => {
+    console.log(`Server is listening on port ${config.PORT}...`);
 });
