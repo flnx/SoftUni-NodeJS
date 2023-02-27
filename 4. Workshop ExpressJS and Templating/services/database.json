@@ -62,21 +62,5 @@
     "beds": 2,
     "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-49855616/original/46cca1fb-3bdf-478f-bb3c-b95bfc5193ac.jpeg?im_w=720",
     "id": "8f5c56fd-ce31-4342-a59b-40eb0db5f9ab"
-  },
-  {
-    "city": "test",
-    "description": "test",
-    "price": 5,
-    "beds": 5,
-    "imgUrl": "https://a0.muscache.com/im/pictures/a5853b78-05ad-4cee-afb9-9df21039dc56.jpg?im_w=720",
-    "id": "fdfe83ca-d796-4b39-b0d6-8aa038a7b381"
-  },
-  {
-    "city": "test",
-    "description": "test",
-    "price": 5,
-    "beds": 5,
-    "imgUrl": "https://a0.muscache.com/im/pictures/6f7e501c-6585-4b36-b950-4ebd6ff1e23e.jpg?im_w=720",
-    "id": "f8be0c52-53c4-455d-972a-66beee77a633"
   }
 ]
