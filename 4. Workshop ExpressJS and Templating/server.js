@@ -4,6 +4,7 @@ const hbr = require('express-handlebars');
 // Controllers
 const homeController = require('./controllers/homeController');
 const catalogController = require('./controllers/catalogController');
+const hostController = require('./controllers/hostController');
 
 const handlebars = hbr.create({
     extname: '.hbs',
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(homeController);
 app.use('/catalog', catalogController);
+app.use('/host', hostController);
 
 
 

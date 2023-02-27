@@ -4,6 +4,7 @@
 @import './theme.css';
 @import './navbar.css';
 @import './footer.css';
+@import './global.css';
 
 body {
     background: var(--background-primary);
@@ -81,4 +82,16 @@ body {
 
 .catalog-card__price {
     font-weight: 600;
+}
+
+/* HOST PAGE */
+
+.host {
+    max-width: 25rem;
+    margin-inline: auto;
+}
+
+.host h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }

@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+form label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--dark-blue);
+}
+
+form input {
+    padding: 0.75em 0.35em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.85rem;
+}
