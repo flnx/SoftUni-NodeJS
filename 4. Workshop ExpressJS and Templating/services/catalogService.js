@@ -37,7 +37,7 @@ async function create(roomData) {
 }
 
 async function persist() {
-    fs.writeFile(filename, JSON.stringify(catalogData2, null, 2));
+    fs.writeFile(filename, JSON.stringify(catalogData, null, 2));
 }
 
 module.exports = {
