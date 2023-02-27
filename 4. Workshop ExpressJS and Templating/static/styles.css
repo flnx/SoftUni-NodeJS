@@ -12,6 +12,10 @@ body {
     flex-direction: column;
 }
 
+#main {
+    margin-bottom: 3rem;
+}
+
 /* HOME PAGE */
 
 .showcase {
