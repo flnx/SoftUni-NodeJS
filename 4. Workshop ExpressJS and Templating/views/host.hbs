@@ -11,8 +11,11 @@
             <label for="beds">Beds</label>
             <input type="number" name="beds" required id="beds" />
             <label for="image-url">Add image url</label>
-            <input type="url" name="description" id="image-url" required />
-            <button type="submit" class="button">Publish</button>
+            <input type="url" name="imgUrl" id="image-url" required />
+            <input type="submit" class="button" value="Publish"/>
         </form>
+        {{#if error}}
+             <p class="error">{{error}}<p/>
+        {{/if}}
     </section>
 </div>

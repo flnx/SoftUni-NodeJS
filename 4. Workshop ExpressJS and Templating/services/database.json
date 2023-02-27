@@ -1,42 +1,66 @@
 [
-    {
-      "id": "asdf-1234",
-      "city": "Nesebar",
-      "price": 30,
-      "beds": 2,
-      "description": "A cool place with a nice view that is amazing and stuff",
-      "imgUrl": "https://a0.muscache.com/im/pictures/6f7e501c-6585-4b36-b950-4ebd6ff1e23e.jpg?im_w=720"
-    },
-    {
-      "id": "asdf-3338",
-      "city": "Varna",
-      "price": 45,
-      "beds": 2,
-      "description": "A cool place with a nice view that is amazing and stuff",
-      "imgUrl": "https://a0.muscache.com/im/pictures/d38503ea-f48d-4ab5-9d92-ac9b0300069f.jpg?im_w=720"
-    },
-    {
-      "id": "asdf-2967",
-      "city": "Bourgas",
-      "price": 55,
-      "beds": 2,
-      "description": "A cool place with a nice view that is amazing and stuff",
-      "imgUrl": "https://a0.muscache.com/im/pictures/ef7399a5-6da0-4e2e-b740-b3d36f500115.jpg?im_w=720"
-    },
-    {
-      "id": "asdf-1083",
-      "city": "Sofia",
-      "price": 50,
-      "beds": 2,
-      "description": "A cool place with a nice view that is amazing and stuff",
-      "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-813029403938473851/original/2db82a1b-1510-4852-a214-9366f0e76e76.jpeg?im_w=720"
-    },
-    {
-      "id": "asdf-7998",
-      "city": "Plovdiv",
-      "price": 45,
-      "beds": 2,
-      "description": "A cool place with a nice view that is amazing and stuff",
-      "imgUrl": "https://a0.muscache.com/im/pictures/0fdfff39-9640-4ade-b776-058a6450cbd6.jpg?im_w=720"
-    }
-  ]
+  {
+    "id": "asdf-1234",
+    "city": "Nesebar",
+    "price": 30,
+    "beds": 2,
+    "description": "A cool place with a nice view that is amazing and stuff",
+    "imgUrl": "https://a0.muscache.com/im/pictures/6f7e501c-6585-4b36-b950-4ebd6ff1e23e.jpg?im_w=720"
+  },
+  {
+    "id": "asdf-3338",
+    "city": "Varna",
+    "price": 45,
+    "beds": 2,
+    "description": "A cool place with a nice view that is amazing and stuff",
+    "imgUrl": "https://a0.muscache.com/im/pictures/d38503ea-f48d-4ab5-9d92-ac9b0300069f.jpg?im_w=720"
+  },
+  {
+    "id": "asdf-2967",
+    "city": "Bourgas",
+    "price": 55,
+    "beds": 2,
+    "description": "A cool place with a nice view that is amazing and stuff",
+    "imgUrl": "https://a0.muscache.com/im/pictures/ef7399a5-6da0-4e2e-b740-b3d36f500115.jpg?im_w=720"
+  },
+  {
+    "id": "asdf-1083",
+    "city": "Sofia",
+    "price": 50,
+    "beds": 2,
+    "description": "A cool place with a nice view that is amazing and stuff",
+    "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-813029403938473851/original/2db82a1b-1510-4852-a214-9366f0e76e76.jpeg?im_w=720"
+  },
+  {
+    "id": "asdf-7998",
+    "city": "Plovdiv",
+    "price": 45,
+    "beds": 2,
+    "description": "A cool place with a nice view that is amazing and stuff",
+    "imgUrl": "https://a0.muscache.com/im/pictures/0fdfff39-9640-4ade-b776-058a6450cbd6.jpg?im_w=720"
+  },
+  {
+    "city": "Sinemorets",
+    "description": "A place close to the beach",
+    "price": 90,
+    "beds": 2,
+    "imgUrl": "https://a0.muscache.com/im/pictures/2ce9203d-81c9-46e9-88ad-8ff01049916b.jpg?im_w=720",
+    "id": "24d2367e-e99c-48f2-b8fc-25fccbea107c"
+  },
+  {
+    "city": "12",
+    "description": "12",
+    "price": 15,
+    "beds": 15,
+    "imgUrl": "https://a0.muscache.com/im/pictures/2ce9203d-81c9-46e9-88ad-8ff01049916b.jpg?im_w=720",
+    "id": "bf9bab30-17b7-481f-8020-da1738624341"
+  },
+  {
+    "city": "Sinemorets",
+    "description": "Private and cozy room in Sinemorets!",
+    "price": 55,
+    "beds": 2,
+    "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-49761488/original/410920d1-6cf1-42e2-8bc0-864815885982.jpeg?im_w=720",
+    "id": "4c5f533b-8604-49a4-87e8-4a0352838331"
+  }
+]

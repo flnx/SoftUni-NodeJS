@@ -24,8 +24,6 @@ app.use('/catalog', catalogController);
 app.use('/host', hostController);
 
 
-
-
 app.listen(3000, () => {
     console.log('Server is listening on port 3000...');
 });
