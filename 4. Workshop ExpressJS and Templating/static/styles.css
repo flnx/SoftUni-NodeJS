@@ -2,30 +2,83 @@
 @import './layout.css';
 @import './typography.css';
 @import './theme.css';
+@import './navbar.css';
+@import './footer.css';
 
 body {
     background: var(--background-primary);
-}
-
-.primary-nav {
-    background: var(--caramel);
-    padding: 1rem 0;
-}
-
-.nav-list {
     display: flex;
-    gap: 2rem;
-    width: 100%;
-    justify-content: flex-end;
+    flex-direction: column;
 }
 
-.nav-list li {
-    background: var(--red);
-    padding: 0.3em 1em;
-    border-radius: 5px;
+/* HOME PAGE */
+
+.showcase {
+    height: 38rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+        url('./showcase.jpg') no-repeat 50% 50% / cover;
 }
 
-.nav-list a {
-    font-size: 1.5rem;
-    color: var(--white);
+.showcase__intro {
+    margin: 0 auto;
+    max-width: 45rem;
+    padding-top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.showcase__title {
+    font-weight: 900;
+}
+
+.showcase__description {
+    font-size: 1.2rem;
+}
+
+.showcase__title,
+.showcase__description {
+    color: #fff;
+}
+
+/* CATALOG PAGE */
+
+.catalog__h1 {
+    margin-bottom: 1rem;
+}
+
+
+.catalog-card__header {
+    aspect-ratio: 1.25/1;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem 1.5rem;
+}
+
+.catalog-card {
+    transition: opacity 0.25s ease-in-out;
+}
+
+.catalog-card:hover,
+.catalog-card:focus {
+    opacity: 0.8;
+}
+
+
+.catalog-card__img {
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.catalog-card__city,
+.catalog-card__header {
+    margin-bottom: 0.25em;
+}
+
+.catalog-card__price {
+    font-weight: 600;
 }
