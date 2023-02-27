@@ -12,7 +12,7 @@ router.post('/', async(req, res) => {
         res.redirect(`/catalog/${roomId}`);
     } catch (err) {
         res.render('host', {
-            error: 'Request Error'
+            error: err
         })
     }
 });

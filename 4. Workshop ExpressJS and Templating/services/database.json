@@ -48,19 +48,19 @@
     "id": "24d2367e-e99c-48f2-b8fc-25fccbea107c"
   },
   {
-    "city": "12",
-    "description": "12",
-    "price": 15,
-    "beds": 15,
-    "imgUrl": "https://a0.muscache.com/im/pictures/2ce9203d-81c9-46e9-88ad-8ff01049916b.jpg?im_w=720",
-    "id": "bf9bab30-17b7-481f-8020-da1738624341"
-  },
-  {
     "city": "Sinemorets",
     "description": "Private and cozy room in Sinemorets!",
     "price": 55,
     "beds": 2,
     "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-49761488/original/410920d1-6cf1-42e2-8bc0-864815885982.jpeg?im_w=720",
     "id": "4c5f533b-8604-49a4-87e8-4a0352838331"
+  },
+  {
+    "city": "Plovdiv",
+    "description": "Newly renovated one room apartment with stunning view ​to the city, Maritza river, Rhodope mountain. With attention to the detail we have made this cozy place for your stay in Plovdiv. If you are top view lover you can enjoy the panorama view from the 15th floor to the 7 hills, Old town, 180-degree panorama view, Maritza river, and much more. Old town it’s 700 meters away, city center it’s 10 mins walking distance. If you love to see the city from the top you will enjoy our place!",
+    "price": 35,
+    "beds": 2,
+    "imgUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-49855616/original/46cca1fb-3bdf-478f-bb3c-b95bfc5193ac.jpeg?im_w=720",
+    "id": "8f5c56fd-ce31-4342-a59b-40eb0db5f9ab"
   }
 ]

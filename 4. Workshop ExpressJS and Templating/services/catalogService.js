@@ -4,8 +4,10 @@ const { v4: uuidv4 } = require('uuid');
 const filename = './services/database.json';
 const catalogData = JSON.parse(fs.readFileSync(filename));
 
-function getAll() {
-    return catalogData;
+function getAll(search) {
+    return catalogData.filter((x) =>
+        x.city.toLowerCase().includes(search.toLowerCase())
+    );
 }
 
 function getById(id) {
@@ -13,24 +15,20 @@ function getById(id) {
 }
 
 async function create(roomData) {
-    if (
-        !roomData.city ||
-        !roomData.description ||
-        !roomData.price ||
-        !roomData.beds ||
-        !roomData.imgUrl
-    ) {
-        throw new Error('Missing fields...');
-    }
-
     const room = {
-        city: roomData.city,
-        description: roomData.description,
+        city: roomData.city.trim(),
+        description: roomData.description.trim(),
         price: Number(roomData.price),
         beds: Number(roomData.beds),
-        imgUrl: roomData.imgUrl,
+        imgUrl: roomData.imgUrl.trim(),
         id: uuidv4(),
     };
+
+    const isFieldInvalid = Object.values(room).some((v) => !v);
+
+    if (isFieldInvalid) {
+        throw new Error('All fields are required!');
+    }
 
     catalogData.push(room);
     await persist();

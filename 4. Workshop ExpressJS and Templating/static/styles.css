@@ -48,11 +48,24 @@ body {
     margin-bottom: 1rem;
 }
 
-
-.catalog-card__header {
-    aspect-ratio: 1.25/1;
+.catalog-search {
+    max-width: 30rem;
+    margin-bottom: 1rem;
 }
 
+.catalog-form {
+    flex-direction: row;
+}
+
+.catalog-form input:first-child {
+    width: 20rem;
+    padding-left: 0.5rem;
+    transition: width 0.5s ease-in-out;
+}
+
+.catalog-search-bar:focus {
+    width: 30rem !important;
+}
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -63,11 +76,14 @@ body {
     transition: opacity 0.25s ease-in-out;
 }
 
+.catalog-card__header {
+    aspect-ratio: 1.25/1;
+}
+
 .catalog-card:hover,
 .catalog-card:focus {
     opacity: 0.8;
 }
-
 
 .catalog-card__img {
     height: 100%;

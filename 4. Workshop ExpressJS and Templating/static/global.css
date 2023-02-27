@@ -18,8 +18,12 @@ form input {
     margin-bottom: 0.85rem;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .error {
     color: var(--error);
-    font-size: 2.5rem;
+    font-size: 1.55rem;
     font-weight: 900;
 }
