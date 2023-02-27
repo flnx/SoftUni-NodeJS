@@ -3,7 +3,7 @@ const config = {
         PORT: 1234,
     },
     development: {
-        PORT: 5000,
+        PORT: 3000,
     },
 };
 

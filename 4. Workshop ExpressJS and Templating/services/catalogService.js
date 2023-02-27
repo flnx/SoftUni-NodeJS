@@ -1,8 +1,9 @@
-const fs = require('fs');
+const fs = require('fs/promises');
+const catalogData = require('./database.json');
+const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
-const filename = './services/database.json';
-const catalogData = JSON.parse(fs.readFileSync(filename));
+const filename = path.resolve(__dirname, './database.json');
 
 function getAll(search) {
     return catalogData.filter((x) =>
@@ -36,15 +37,7 @@ async function create(roomData) {
 }
 
 async function persist() {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(filename, JSON.stringify(catalogData, null, 2), (err) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve();
-            }
-        });
-    });
+    await fs.writeFile(filename, JSON.stringify(catalogData, null, 2));
 }
 
 module.exports = {
