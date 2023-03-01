@@ -6,9 +6,13 @@ const { v4: uuidv4 } = require('uuid');
 const filename = path.resolve(__dirname, './database.json');
 
 function getAll(search) {
-    return catalogData.filter((x) =>
-        x.city.toLowerCase().includes(search.toLowerCase())
-    );
+    if (search) {
+        return catalogData.filter((x) =>
+            x.city.toLowerCase().includes(search.toLowerCase())
+        );
+    }
+    
+    return catalogData;
 }
 
 function getById(id) {
@@ -37,7 +41,7 @@ async function create(roomData) {
 }
 
 async function persist() {
-    fs.writeFile(filename, JSON.stringify(catalogData, null, 2));
+    await fs.writeFile(filename, JSON.stringify(catalogData, null, 2));
 }
 
 module.exports = {
