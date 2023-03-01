@@ -1,0 +1,15 @@
+.primary-footer {
+    padding: 2rem 0;
+    margin-top: auto;
+    background: var(--background-footer);
+}
+
+.primary-footer__item {
+    color: #fff;
+}
+
+.primary-footer a {
+    color: var(--red);
+    font-size: 1.25rem;
+    margin-left: 0.25rem;
+}

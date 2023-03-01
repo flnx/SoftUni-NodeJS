@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="catalog__h1">Details</h1>
+    <section class="details">
+        {{#with room}}
+            <img src="{{imgUrl}}" alt="">
+            <h3 class="details__city">{{city}}</h3>
+            <p><span class="details__price">${{price}}</span> / night</p>
+            <p>Beds: {{beds}}</p>
+            <p>{{description}}</p>
+        {{/with}}
+    </section>
+</div>
