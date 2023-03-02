@@ -1,7 +1,6 @@
 const fs = require('fs/promises');
 const catalogData = require('./database.json');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
 
 const filename = path.resolve(__dirname, './database.json');
 
@@ -26,7 +25,6 @@ async function create(roomData) {
         price: Number(roomData.price),
         beds: Number(roomData.beds),
         imgUrl: roomData.imgUrl.trim(),
-        id: uuidv4(),
     };
 
     const isFieldInvalid = Object.values(room).some((v) => !v);
