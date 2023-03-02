@@ -1,15 +1,17 @@
-const { createFacility } = require('../services/facilityService');
-
 const facilityController = require('express').Router();
 
-facilityController.get('/host', async (req, res) => {
+const { createFacility, getAllFacilities, addFacilities } = require('../services/facilityService');
+const { getById } = require('../services/roomService');
+
+
+facilityController.get('/create', async (req, res) => {
     // show creation form
     res.render('createFacility', {
         title: 'Create New Facility',
     });
 });
 
-facilityController.post('/host', async (req, res) => {
+facilityController.post('/create', async (req, res) => {
     try {
         await createFacility(req.body.label, req.body.iconUrl);
         res.redirect('/catalog');
@@ -19,6 +21,31 @@ facilityController.post('/host', async (req, res) => {
             error: error.message,
         });
     }
+});
+
+facilityController.get('/:roomId/decorateRoom', async (req, res) => {
+    const roomId = req.params.roomId;
+    const room = await getById(roomId);
+    const facilities = await getAllFacilities();
+
+    res.render('decorate', {
+        title: 'Add Facility',
+        room,
+        facilities,
+    });
+});
+
+facilityController.post('/:roomId/decorateRoom', async (req, res) => {
+    const facilityIds = Object.keys(req.body);
+
+    await addFacilities(req.params.roomId, facilityIds);
+
+    //? [x] extract the id's from form
+    //? [] find the facilties that correspond to each id
+    //? [] push the facilities in the Room facilities object to connect them
+    //? [] get Room,
+
+    res.redirect('/facility/' + req.params.roomId + '/decorateRoom');
 });
 
 module.exports = facilityController;

@@ -27,3 +27,9 @@ textarea:focus, input:focus{
     font-size: 1.55rem;
     font-weight: 900;
 }
+
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+}

@@ -11,7 +11,12 @@ async function createFacility(label, iconUrl) {
     });
 }
 
+async function addFacilities(roomId, facilityIds) {
+   
+}
+
 module.exports = {
     getAllFacilities,
-    createFacility
+    createFacility,
+    addFacilities
 }

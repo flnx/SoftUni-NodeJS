@@ -1,12 +1,24 @@
 <div class="container">
     <h1 class="catalog__h1">Details</h1>
     <section class="details">
-        {{#with room}}
-            <img src="{{imgUrl}}" alt="">
-            <h3 class="details__city">{{city}}</h3>
-        {{/with}}
-        {{#each facilities}}
-                <p><span class="details__price">{{iconUrl}} {{label}}<span></p>
-        {{/each}}
+        <img src="{{room.imgUrl}}" alt="">
+        <h3 class="details__city">{{room.city}}</h3>
+
+        <form action="/facility/{{room._id}}/decorateRoom" method="post">
+
+            <ul>
+                {{#each facilities}}
+                    <li>
+                        <input type="checkbox" id="demoCheckbox" name={{_id}} value="1">
+                        {{iconUrl}} {{label}} 
+                    </li>
+                {{/each}}
+            </ul>
+
+        <div>
+            <input type="submit" value="Add" class="button">
+        </div>
+
+        </form>
     </section>
 </div>
