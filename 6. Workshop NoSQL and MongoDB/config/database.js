@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connStr = 'mongodb://127.0.0.1:27017/booking';
+const connStr = process.env.DATABASE_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/booking';
 
 database().catch((err) => {
     console.error('Error initializing database');

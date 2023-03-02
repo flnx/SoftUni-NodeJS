@@ -1,4 +1,4 @@
-const { create } = require('../services/catalogService');
+const { create } = require('../services/roomService');
 
 const router = require('express').Router();
 
@@ -6,14 +6,18 @@ router.get('/', (req, res) => {
     res.render('host');
 });
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
+    console.log(req);
+    
     try {
-        const roomId = await create(req.body);
-        res.redirect(`/catalog/${roomId}`);
+        const room = await create(req.body);
+        
+        res.redirect(`/catalog/${room._id}`);
     } catch (err) {
+        console.log(err.message);
         res.render('host', {
-            error: err
-        })
+            error: err,
+        });
     }
 });
 

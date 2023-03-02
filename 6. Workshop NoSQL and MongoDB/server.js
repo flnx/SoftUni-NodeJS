@@ -9,8 +9,8 @@ start();
 async function start() {
     const app = express();
 
-    routesConfig(app);
     expressConfig(app);
+    routesConfig(app);
     await databaseConfig(app);
 
     app.listen(serverConfig.PORT, () => {

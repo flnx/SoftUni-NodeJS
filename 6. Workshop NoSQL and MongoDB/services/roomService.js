@@ -1,38 +1,36 @@
 const Room = require('../models/Room');
 
 function getAll(search) {
-   return Room.find({});
+    return Room.find({});
 }
 
 function getById(id) {
     return Room.findById(id);
 }
 
-// async function create(roomData) {
-//     const room = {
-//         city: roomData.city.trim(),
-//         description: roomData.description.trim(),
-//         price: Number(roomData.price),
-//         beds: Number(roomData.beds),
-//         imgUrl: roomData.imgUrl.trim(),
-//     };
+async function create(roomData) {
+    const room = {
+        city: roomData.city,
+        description: roomData.description,
+        price: Number(roomData.price),
+        beds: Number(roomData.beds),
+        imgUrl: roomData.imgUrl,
+    };
 
-//     const isFieldInvalid = Object.values(room).some((v) => !v);
 
-//     if (isFieldInvalid) {
-//         throw new Error('All fields are required!');
-//     }
+    const isFieldInvalid = Object.values(room).some((v) => !v);
 
-//     catalogData.push(room);
-//     await persist();
-//     return room.id;
-// }
+    if (isFieldInvalid) {
+        throw new Error('All fields are required!');
+    }
 
-// async function persist() {
-//     await fs.writeFile(filename, JSON.stringify(catalogData, null, 2));
-// }
+    const result = await Room.create(room);
+
+    return result;
+}
 
 module.exports = {
     getAll,
     getById,
+    create,
 };
