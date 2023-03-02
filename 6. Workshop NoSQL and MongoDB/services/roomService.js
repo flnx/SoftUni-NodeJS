@@ -1,11 +1,11 @@
 const Room = require('../models/Room');
 
 function getAll(search) {
-    return Room.find({});
+    return Room.find({}).lean();
 }
 
 function getById(id) {
-    return Room.findById(id);
+    return Room.findById(id).lean();
 }
 
 async function create(roomData) {

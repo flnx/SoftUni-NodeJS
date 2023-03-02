@@ -1,0 +1,17 @@
+<div class="container">
+    <section class="host">
+        <h1>Add new facility</h1>
+        <form action="/facility/host" method="post">
+            <label for="label">Label</label>
+            <input type="text" name="label" id="label" required />
+            <label for="iconUrl">Icon URL</label>
+            <input type="text" name="iconUrl" id="iconUrl" required />
+
+            <input type="submit" class="button" value="Publish"/>
+        </form>
+        {{#if error}}
+        <p class="error">{{error}}
+            <p />
+            {{/if}}
+    </section>
+</div>

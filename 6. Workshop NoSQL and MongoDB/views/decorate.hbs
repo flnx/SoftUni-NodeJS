@@ -4,10 +4,9 @@
         {{#with room}}
             <img src="{{imgUrl}}" alt="">
             <h3 class="details__city">{{city}}</h3>
-            <p><span class="details__price">${{price}}</span> / night</p>
-            <p>Beds: {{beds}}</p>
-            <p>{{description}}</p>
-            <a href="/facility/{{_id}}/decorateRoom" class="button">Edit facilities</a>
         {{/with}}
+        {{#each facilities}}
+                <p><span class="details__price">{{iconUrl}} {{label}}<span></p>
+        {{/each}}
     </section>
 </div>
