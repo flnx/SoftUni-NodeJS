@@ -5,7 +5,7 @@ const facilityController = require('./facilityController');
 
 router.get('/', async (req, res) => {
     const searchQuery = req.query.search || '';
-    const rooms = await getAll(searchQuery).lean();
+    const rooms = await getAll(searchQuery);
 
     res.render('catalog', {
         rooms,
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:roomId', async (req, res) => {
     const { roomId } = req.params;
 
-    const room = await getById(roomId).lean();
+    const room = await getById(roomId);
 
     res.render('details', {
         room,
