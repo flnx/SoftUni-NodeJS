@@ -8,6 +8,11 @@
             <p>Beds: {{beds}}</p>
             <p>{{description}}</p>
             <a href="/facility/{{_id}}/decorateRoom" class="button">Edit facilities</a>
+            <ul>
+                {{#each facilities}}
+                    <li>{{iconUrl}} {{label}}</li>
+                {{/each}}
+            </ul>
         {{/with}}
     </section>
 </div>

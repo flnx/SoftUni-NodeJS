@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const { getAllFacilities } = require('../services/facilityService');
 const { getAll, getById } = require('../services/roomService');
-const facilityController = require('./facilityController');
 
 router.get('/', async (req, res) => {
     const searchQuery = req.query.search || '';

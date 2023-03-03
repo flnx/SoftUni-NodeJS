@@ -32,6 +32,7 @@ async function addFacilities(roomId, facilityIds) {
         const facilityIndex = room.facilities.findIndex(
             (x) => x._id.toString() == f._id.toString()
         );
+        
         room.facilities.splice(facilityIndex, 1);
     });
 
