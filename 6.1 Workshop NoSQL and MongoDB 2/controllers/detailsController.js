@@ -1,6 +1,10 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
+router.get('/:cubeId', (req, res) => {
+    const { cubeId } = req.params;
+
+    console.log(cubeId);
+
     res.render('details');
 });
 
