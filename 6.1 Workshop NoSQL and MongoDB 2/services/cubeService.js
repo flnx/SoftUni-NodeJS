@@ -2,22 +2,14 @@ const Cube = require('../models/cubeSchema');
 
 async function getAllCubes({ search, from, to }) {
     const queryParam = search?.toLowerCase() || '';
-    const difficultyFrom = Number(from);
-    const difficultyTo = Number(to);
+    const difficultyFrom = Number(from) || 0;
+    const difficultyTo = Number(to) || 6;
 
-    let cubes = await Cube.find({
-        name: {
-            $regex: new RegExp(queryParam, 'i'),
-        },
-    }).lean();
-
-    if (difficultyFrom) {
-        cubes = cubes.filter(c => c.difficultyLevel >= difficultyFrom);
-    }
-    
-    if (difficultyTo) {
-        cubes = cubes.filter(c => c.difficultyLevel <= difficultyTo);
-    }
+    let cubes = await Cube.find({name: { $regex: new RegExp(queryParam, 'i') }})
+        .where('difficultyLevel')
+        .gte(difficultyFrom)
+        .lte(difficultyTo)
+        .lean();
 
     return cubes;
 }
