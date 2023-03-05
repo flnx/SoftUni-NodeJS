@@ -1,8 +1,8 @@
 const Accessory = require('../models/accessorySchema');
+const Cube = require('../models/cubeSchema');
 
 async function getAllAccessories() {
     const x = await Accessory.find().select('name').lean();
-    console.log(x);
 
     return x;
 }
@@ -19,7 +19,13 @@ async function createAccessory(accessoryData) {
     return result;
 }
 
-async function attachAccessory(data, id) {}
+async function attachAccessory(accessoryId, cubeId) {
+    const cube = await Cube.findById(cubeId);
+    const accessory = await Accessory.findById(accessoryId);
+
+    cube.accessories.push(accessory);
+    await cube.save();
+}
 
 module.exports = {
     createAccessory,

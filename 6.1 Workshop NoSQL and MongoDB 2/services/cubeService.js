@@ -15,7 +15,7 @@ async function getAllCubes({ search, from, to }) {
 }
 
 async function getCubeById(id) {
-    return Cube.findById(id).lean();
+    return Cube.findById(id).populate('accessories').lean();
 }
 
 async function createCube(cubeData) {
