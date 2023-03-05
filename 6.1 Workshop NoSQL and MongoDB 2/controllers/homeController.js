@@ -1,7 +1,13 @@
+const { getAllCubes } = require('../services/cubeService');
+
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('home')
+router.get('/', async (req, res) => {
+    const cubes = await getAllCubes();
+
+    res.render('home', {
+        cubes,
+    });
 });
 
 module.exports = router;
