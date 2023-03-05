@@ -1,3 +1,4 @@
+const { createAccessory } = require('../services/accessoryService');
 const { createCube } = require('../services/cubeService');
 
 const router = require('express').Router();
@@ -7,13 +8,24 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/accessory', (req, res) => {
-    res.render('createAccessory.hbs');
+    res.render('createAccessory');
+});
+
+router.post('/accessory', async (req, res) => {
+    try {
+        await createAccessory(req.body);
+    } catch (err) {
+        const errorMessages = err.message.split(',');
+
+        res.render('createAccessory', {
+            errors: errorMessages,
+        });
+    }
 });
 
 router.post('/', async (req, res) => {
     try {
-        const cube = await createCube(req.body);
-        console.log(cube);
+        await createCube(req.body);
         res.redirect('/create');
     } catch (err) {
         console.log(err.message);
