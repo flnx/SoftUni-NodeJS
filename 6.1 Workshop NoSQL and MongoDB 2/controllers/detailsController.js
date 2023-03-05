@@ -1,11 +1,15 @@
+const { getCubeById } = require('../services/cubeService');
+
 const router = require('express').Router();
 
-router.get('/:cubeId', (req, res) => {
+router.get('/:cubeId', async (req, res) => {
     const { cubeId } = req.params;
 
-    console.log(cubeId);
+    const cube = await getCubeById(cubeId);
 
-    res.render('details');
+    res.render('details', {
+        cube,
+    });
 });
 
 module.exports = router;
