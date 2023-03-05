@@ -14,6 +14,7 @@ router.get('/accessory', (req, res) => {
 router.post('/accessory', async (req, res) => {
     try {
         await createAccessory(req.body);
+        res.redirect('/create/accessory')
     } catch (err) {
         const errorMessages = err.message.split(',');
 
