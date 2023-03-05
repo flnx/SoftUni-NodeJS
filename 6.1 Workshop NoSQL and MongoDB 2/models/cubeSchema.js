@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const { Schema } = require('mongoose');
+
+const Schema = mongoose.Schema;
 
 const cubeSchema = new Schema({
     name: {
@@ -25,6 +26,13 @@ const cubeSchema = new Schema({
         min: 0,
         max: 6,
     },
+    accessories: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Accessory',
+            default: [],
+        },
+    ],
 });
 
 const Cube = mongoose.model('Cube', cubeSchema);
