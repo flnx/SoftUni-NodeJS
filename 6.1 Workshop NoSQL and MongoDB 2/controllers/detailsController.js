@@ -7,8 +7,6 @@ router.get('/:cubeId', async (req, res) => {
 
     const cube = await getCubeById(cubeId);
 
-    console.log(cube)
-
     res.render('details', {
         cube,
     });
