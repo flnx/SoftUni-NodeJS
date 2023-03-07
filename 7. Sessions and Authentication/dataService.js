@@ -9,6 +9,20 @@ async function saveDb() {
     await fs.writeFile('./db.json', data);
 }
 
+exports.loginUser = async (username, password) => {
+    const user = db.users.find((x) => x.username === username);
+
+    if (!user) {
+        throw "Username or password don't match";
+    }
+
+    const isMatching = await bcrypt.compare(password, user.password);
+
+    if (!isMatching) {
+        throw "Username or password don't match";
+    }
+};
+
 exports.registerUser = async (username, password) => {
     if (db.users.some((x) => x.username === username)) {
         throw 'User already exist';
