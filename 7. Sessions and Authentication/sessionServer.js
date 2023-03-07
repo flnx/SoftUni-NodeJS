@@ -17,9 +17,11 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-    const authData = JSON.parse(req.cookies.authData);
+    const data = req.cookies.authData || JSON.stringify({ username: null });
+    console.log(req.cookies)
 
-    console.log(req.session);
+
+    const authData = JSON.parse(data);
 
     res.send(homePage(authData.username));
 });
@@ -32,6 +34,10 @@ app.get('/register', (req, res) => {
     res.send(registerPage());
 });
 
+app.get('/logout', (req, res) => {
+    res.clearCookie('authData');
+    req.session.destroy(() => res.redirect('/'))
+});
 
 app.post('/login', async (req, res) => {
     try {
@@ -54,7 +60,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    
+
     const authData = { username };
     res.cookie('authData', JSON.stringify(authData));
 
@@ -71,7 +77,8 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/profile', (req, res) => {
-    console.log(req.session);
+    console.log(req.session)
+
 
     res.send(profilePage(req.session.username, req.session.privateInfo));
 });
@@ -114,6 +121,7 @@ function homePage(username) {
         <p><a href="/profile">Profile</a></p> 
         <p><a href="/register">Register</a></p> 
         <p><a href="/login">Login</a></p>
+        <p><a href="/logout">Logout</a></p>
 `;
 }
 
