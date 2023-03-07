@@ -1,6 +1,7 @@
 const express = require('express');
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 const dataService = require('./dataService');
 const app = express();
@@ -18,8 +19,7 @@ app.use(
 
 app.get('/', (req, res) => {
     const data = req.cookies.authData || JSON.stringify({ username: null });
-    console.log(req.cookies)
-
+    console.log(req.cookies);
 
     const authData = JSON.parse(data);
 
@@ -36,18 +36,20 @@ app.get('/register', (req, res) => {
 
 app.get('/logout', (req, res) => {
     res.clearCookie('authData');
-    req.session.destroy(() => res.redirect('/'))
+    res.clearCookie('token');
+    req.session.destroy(() => res.redirect('/'));
 });
 
 app.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        await dataService.loginUser(username, password);
+        const token = await dataService.loginUser(username, password);
 
         const authData = { username };
 
         res.cookie('authData', JSON.stringify(authData));
+        res.cookie('token', token, { httpOnly: true });
         req.session.username = username;
         req.session.privateInfo = `Hello there, Jedi ${username}!`;
 
@@ -77,10 +79,16 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/profile', (req, res) => {
-    console.log(req.session)
+    const token = req.cookies['token'];
 
+    
+    if (!token) {
+        res.status(401).end();
+    }
+    
+    const verifiedToken = jwt.verify(token, 'secret');
 
-    res.send(profilePage(req.session.username, req.session.privateInfo));
+    res.send(profilePage(verifiedToken.username, 'Yee claw, Mr Big Deal!'));
 });
 
 app.listen(3000, () => console.log('Server is running on port 3000'));
