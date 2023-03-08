@@ -74,7 +74,8 @@ roomController.post('/:id/delete', async (req, res) => {
         res.redirect('/catalog');
     } catch (err) {
         res.render('delete', {
-            error: err.message,
+            title: 'Delete Room',
+            room, v
         });
     }
 });

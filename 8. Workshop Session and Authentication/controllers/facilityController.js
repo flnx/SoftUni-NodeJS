@@ -25,6 +25,12 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
 
+    const isOwner = req.user._id = room.owner?.toString();
+    
+    if (!isOwner) {
+        return res.redirect('/auth/login');
+    }
+
     const facilities = await getAllFacilities();
 
     facilities.forEach((f) => {
@@ -41,9 +47,16 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
 });
 
 facilityController.post('/:roomId/decorateRoom', async (req, res) => {
+    const roomId = req.params.roomId;
+    const room = await getById(roomId);
+    
+    const isOwner = req.user._id = room.owner?.toString();
+    
+    if (!isOwner) {
+        return res.redirect('/auth/login');
+    }
+    
     const facilityIds = Object.keys(req.body);
-
-    //? [x] extract the id's from form and add the faacilities to the current room
     await addFacilities(req.params.roomId, facilityIds);
 
     res.redirect('/facility/' + req.params.roomId + '/decorateRoom');
