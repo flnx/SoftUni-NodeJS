@@ -7,8 +7,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    console.log(req);
-    
     try {
         const room = await create(req.body);
         

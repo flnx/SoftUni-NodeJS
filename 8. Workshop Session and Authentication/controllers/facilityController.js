@@ -1,10 +1,6 @@
 const facilityController = require('express').Router();
 
-const {
-    createFacility,
-    getAllFacilities,
-    addFacilities,
-} = require('../services/facilityService');
+const { createFacility, getAllFacilities, addFacilities } = require('../services/facilityService');
 const { getById } = require('../services/roomService');
 
 facilityController.get('/create', async (req, res) => {

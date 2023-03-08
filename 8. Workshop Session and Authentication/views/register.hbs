@@ -1,0 +1,20 @@
+<div class="container">
+    <section class="host">
+        <h1>Register</h1>
+        <form action="/auth/register" method="post">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required />
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required />
+
+            <label for="rePass">Repeat Password</label>
+            <input type="password" name="rePass" id="rePass" required />
+
+            <input type="submit" class="button" value="Register" />
+        </form>
+        {{#if error}}
+           <p class="error">{{error}}</p>
+        {{/if}}
+    </section>
+</div>
