@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const auth = require('../middlewares/auth');
+const userNav = require('../middlewares/userNav');
 
 const handlebars = hbs.create({
     extname: '.hbs',
@@ -17,4 +18,5 @@ module.exports = (app) => {
     app.use('/static', express.static('static'));
     app.use(cookieParser());
     app.use(auth(jwtSecret));
+    app.use(userNav());
 };

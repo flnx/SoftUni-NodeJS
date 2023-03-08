@@ -2,17 +2,24 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 async function login(username, password) {
-    return new Promise((resolve, reject) => {
-        if (username.toLowerCase() == 'peter' && password == '123456') {
-            resolve({
-                _id: '123f',
-                username: 'Peter',
-                roles: ['user'],
-            });
-        } else {
-            reject(new Error('Incorrect username or password'));
-        }
+    const user = await User.findOne({
+        username: { $regex: new RegExp(username, 'i') },
     });
+
+    if (!user) {
+        throw new Error('Incorrect username or password');
+    }
+
+    const match = await bcrypt.compare(password, user.hashedPassword);
+
+    if (!match) {
+        throw new Error('Incorrect username or password');
+    }
+
+    return {
+        username: user.username,
+        user: user.roles,
+    };
 }
 
 async function register(username, password) {
