@@ -19,7 +19,7 @@ async function login(username, password) {
 
     return {
         username: user.username,
-        user: user.roles,
+        roles: user.roles,
         _id: user._id,
     };
 }

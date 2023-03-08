@@ -21,7 +21,7 @@ function isGuest() {
 function hasRole(role) {
     return (req, res, next) => {
         if (!req.user || !req.user.roles.includes(role)) {
-            res.redirect('/login');
+            res.redirect('/auth/login');
         } else {
             next();
         }
@@ -31,4 +31,5 @@ function hasRole(role) {
 module.exports = {
     hasUser,
     isGuest,
+    hasRole
 };

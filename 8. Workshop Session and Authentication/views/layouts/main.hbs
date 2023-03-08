@@ -20,7 +20,9 @@
                     <li><a href="/catalog">Stays</a></li>
                     {{#if hasUser}}
                     <li><a href="/host">List your property</a></li>
-                    <li><a href="/facility/create">Create Facility</a></li>
+                    {{#if isAdmin}}
+                         <li><a href="/facility/create">Create Facility</a></li>
+                    {{/if}}
                     <li><a href="/auth/logout">Logout</a></li>
                     {{else}}
                     <li><a href="/auth/login">Login</a></li>

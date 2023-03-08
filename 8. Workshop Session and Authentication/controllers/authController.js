@@ -55,7 +55,6 @@ authController.post('/register', async (req, res) => {
 });
 
 authController.get('/logout', hasUser(), async (req, res) => {
-    console.log(req.cookies)
     res.clearCookie('jwt');
     res.redirect('/');
 });

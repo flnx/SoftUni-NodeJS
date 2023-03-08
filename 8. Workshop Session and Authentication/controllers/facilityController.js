@@ -1,15 +1,20 @@
 const facilityController = require('express').Router();
 
-const { createFacility, getAllFacilities, addFacilities } = require('../services/facilityService');
+const { hasRole } = require('../middlewares/guards');
+const {
+    createFacility,
+    getAllFacilities,
+    addFacilities,
+} = require('../services/facilityService');
 const { getById } = require('../services/roomService');
 
-facilityController.get('/create', async (req, res) => {
+facilityController.get('/create', hasRole('admin'), async (req, res) => {
     res.render('createFacility', {
         title: 'Create New Facility',
     });
 });
 
-facilityController.post('/create', async (req, res) => {
+facilityController.post('/create', hasRole('admin'), async (req, res) => {
     try {
         await createFacility(req.body.label, req.body.iconUrl);
         res.redirect('/catalog');
@@ -25,8 +30,8 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
 
-    const isOwner = req.user._id = room.owner?.toString();
-    
+    const isOwner = (req.user._id = room.owner?.toString());
+
     if (!isOwner) {
         return res.redirect('/auth/login');
     }
@@ -34,7 +39,11 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
     const facilities = await getAllFacilities();
 
     facilities.forEach((f) => {
-        if ((room.facilities || []).some((rf) => rf._id.toString() == f._id.toString())) {
+        if (
+            (room.facilities || []).some(
+                (rf) => rf._id.toString() == f._id.toString()
+            )
+        ) {
             f.checked = true;
         }
     });
@@ -49,13 +58,13 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
 facilityController.post('/:roomId/decorateRoom', async (req, res) => {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
-    
-    const isOwner = req.user._id = room.owner?.toString();
-    
+
+    const isOwner = (req.user._id = room.owner?.toString());
+
     if (!isOwner) {
         return res.redirect('/auth/login');
     }
-    
+
     const facilityIds = Object.keys(req.body);
     await addFacilities(req.params.roomId, facilityIds);
 
