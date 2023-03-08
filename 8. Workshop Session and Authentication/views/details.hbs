@@ -8,7 +8,9 @@
             <p>Beds: {{beds}}</p>
             <p>{{description}}</p>
             {{#if isOwner}}
-               <a href="/facility/{{_id}}/decorateRoom" class="button">Edit facilities</a>
+               <a href="/facility/{{_id}}/decorateRoom" class="button">Facilities</a>
+               <a href="/room/{{_id}}/edit" class="button">Edit Room</a>
+               <a href="/room/{{_id}}/delete" class="button">Delete</a>
             {{/if}}
             <ul>
                 {{#each facilities}}

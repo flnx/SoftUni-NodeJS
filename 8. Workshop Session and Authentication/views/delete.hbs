@@ -1,0 +1,23 @@
+<div class="container">
+    <section class="host">
+        <h1>Delete room</h1>
+        <form action="/room/{{room._id}}/delete" method="post">
+            {{#with room}}
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" value="{{city}}" disabled />
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" value="{{description}}" disabled />
+            <label for="price">Price</label>
+            <input type="number" name="price" value="{{price}}" disabled id="price" />
+            <label for="beds">Beds</label>
+            <input type="number" name="beds" id="beds" value="{{beds}}" disabled />
+            <label for="image-url">Add image url</label>
+            <input type="url" name="imgUrl" id="image-url" value="{{imgUrl}}" disabled />
+            <input type="submit" class="button" value="Confirm Delete" />
+            {{/with}}
+        </form>
+        {{#if error}}
+        <p class="error">{{error}}</p>
+        {{/if}}
+    </section>
+</div>
