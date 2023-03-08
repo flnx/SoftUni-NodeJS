@@ -20,6 +20,7 @@ async function login(username, password) {
     return {
         username: user.username,
         user: user.roles,
+        _id: user._id,
     };
 }
 

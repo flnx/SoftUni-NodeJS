@@ -9,13 +9,12 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const room = await create(req.body);
+        const room = await create(req.body, req.user._id);
         
         res.redirect(`/catalog/${room._id}`);
     } catch (err) {
-        console.log(err.message);
         res.render('host', {
-            error: err,
+            error: err.message,
         });
     }
 });

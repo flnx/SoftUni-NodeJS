@@ -8,13 +8,14 @@ function getById(id) {
     return Room.findById(id).populate('facilities', 'label iconUrl').lean();
 }
 
-async function create(roomData) {
+async function create(roomData, ownerId) {
     const room = {
         city: roomData.city,
         description: roomData.description,
         price: Number(roomData.price),
         beds: Number(roomData.beds),
         imgUrl: roomData.imgUrl,
+        owner: ownerId,
     };
 
     const isFieldInvalid = Object.values(room).some((v) => !v);

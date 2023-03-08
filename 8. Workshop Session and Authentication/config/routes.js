@@ -10,5 +10,5 @@ module.exports = (app) => {
     app.use('/catalog', catalogController);
     app.use('/host', hasUser(), hostController);
     app.use('/facility', hasUser(), facilityController);
-    app.use('/auth', isGuest(), authController);
+    app.use('/auth', authController);
 };

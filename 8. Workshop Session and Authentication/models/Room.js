@@ -8,6 +8,7 @@ const roomSchema = new Schema({
     description: { type: String, required: true },
     imgUrl: { type: String },
     facilities: { type: [Types.ObjectId], default: [], ref: 'Facility' },
+    owner: { type: Types.ObjectId, ref: 'User', required: true },
 });
 
 const Room = mongoose.model('Room', roomSchema);

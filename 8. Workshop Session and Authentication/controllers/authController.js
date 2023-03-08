@@ -1,12 +1,14 @@
+const { isGuest, hasUser } = require('../middlewares/guards');
 const { login, register } = require('../services/authService');
+
 
 const authController = require('express').Router();
 
-authController.get('/login', (req, res) => {
+authController.get('/login', isGuest(), (req, res) => {
     res.render('login');
 });
 
-authController.get('/register', (req, res) => {
+authController.get('/register', isGuest(), (req, res) => {
     res.render('register');
 });
 
@@ -50,6 +52,12 @@ authController.post('/register', async (req, res) => {
             error: err.message,
         });
     }
+});
+
+authController.get('/logout', hasUser(), async (req, res) => {
+    console.log(req.cookies)
+    res.clearCookie('jwt');
+    res.redirect('/');
 });
 
 function attachToken(req, res, data) {
