@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 class="catalog__h1">Catalog</h1>
+    <section>
+        <div class="catalog-search">
+            <form method="get" class="catalog-form">
+                <input type="search" name="search" placeholder="Search for a city..." class="catalog-search-bar" value="{{search}}"/>
+                <input type="submit" class="button" value="Search"/>
+            </form>
+        </div>
+        <div class="catalog">
+            {{#if rooms}}
+                {{#each rooms}}
+                {{> catalog-card}}
+                {{/each}}
+
+            {{else}}
+                <h3>Nothing has been listed yet. 😢</h3>
+            {{/if}}
+        </div>
+    </section>
+</div>

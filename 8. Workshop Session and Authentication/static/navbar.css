@@ -1,0 +1,21 @@
+.primary-nav {
+    /* background: var(--white); */
+    padding: 1.5rem 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.25rem;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.nav-list a {
+    padding: 0.65em 1.35em;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white);
+}

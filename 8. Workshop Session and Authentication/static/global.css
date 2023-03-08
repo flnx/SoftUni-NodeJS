@@ -1,0 +1,35 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+form label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--dark-blue);
+}
+
+form input {
+    padding: 0.75em 0.35em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.85rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.error {
+    color: var(--error);
+    font-size: 1.55rem;
+    font-weight: 900;
+}
+
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+}

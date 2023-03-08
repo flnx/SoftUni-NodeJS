@@ -1,0 +1,122 @@
+@import './reset.css';
+@import './layout.css';
+@import './typography.css';
+@import './theme.css';
+@import './navbar.css';
+@import './footer.css';
+@import './global.css';
+
+body {
+    background: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    margin-bottom: 3rem;
+}
+
+/* HOME PAGE */
+
+.showcase {
+    height: 38rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+        url('./showcase.jpg') no-repeat 50% 50% / cover;
+}
+
+.showcase__intro {
+    margin: 0 auto;
+    max-width: 45rem;
+    padding-top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.showcase__title {
+    font-weight: 900;
+}
+
+.showcase__description {
+    font-size: 1.2rem;
+}
+
+.showcase__title,
+.showcase__description {
+    color: #fff;
+}
+
+/* CATALOG PAGE */
+
+.catalog__h1 {
+    margin-bottom: 1rem;
+}
+
+.catalog-search {
+    max-width: 30rem;
+    margin-bottom: 1rem;
+}
+
+.catalog-form {
+    flex-direction: row;
+}
+
+.catalog-form input:first-child {
+    width: 20rem;
+    padding-left: 0.5rem;
+    transition: width 0.5s ease-in-out;
+}
+
+.catalog-search-bar:focus {
+    width: 30rem !important;
+}
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem 1.5rem;
+}
+
+.catalog-card {
+    transition: opacity 0.25s ease-in-out;
+}
+
+.catalog-card__header {
+    aspect-ratio: 1.25/1;
+}
+
+.catalog-card:hover,
+.catalog-card:focus {
+    opacity: 0.8;
+}
+
+.catalog-card__img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.catalog-card__city,
+.catalog-card__header {
+    margin-bottom: 0.25em;
+}
+
+.catalog-card__price {
+    font-weight: 600;
+}
+
+/* HOST PAGE */
+
+.host {
+    max-width: 25rem;
+    margin-inline: auto;
+}
+
+.host h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+
+/* Decorate Page */
+

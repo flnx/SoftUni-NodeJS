@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 class="catalog__h1">Add facilities</h1>
+    <section class="details">
+        <img src="{{room.imgUrl}}" alt="">
+        <h3 class="details__city">{{room.city}}</h3>
+
+        <form action="/facility/{{room._id}}/decorateRoom" method="post">
+
+            <ul>
+                {{#each facilities}}
+                    <li>
+                        <input type="checkbox" id="demoCheckbox" name={{_id}} value="1" {{#if checked}}checked{{/if}}/>
+                        {{iconUrl}} {{label}} 
+                    </li>
+                {{/each}}
+            </ul>
+
+        <div>
+            <input type="submit" value="Add" class="button">
+        </div>
+
+        </form>
+    </section>
+</div>
