@@ -13,8 +13,13 @@ router.get('/', async (req, res) => {
 
 router.get('/:roomId', async (req, res) => {
     const { roomId } = req.params;
-
     const room = await getById(roomId);
+
+    
+    if (req.user && req.user._id == room.owner) {
+        room.isOwner = true;
+    }
+
 
     res.render('details', {
         room,

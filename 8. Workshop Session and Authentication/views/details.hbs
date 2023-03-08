@@ -7,7 +7,9 @@
             <p><span class="details__price">${{price}}</span> / night</p>
             <p>Beds: {{beds}}</p>
             <p>{{description}}</p>
-            <a href="/facility/{{_id}}/decorateRoom" class="button">Edit facilities</a>
+            {{#if isOwner}}
+               <a href="/facility/{{_id}}/decorateRoom" class="button">Edit facilities</a>
+            {{/if}}
             <ul>
                 {{#each facilities}}
                     <li>{{iconUrl}} {{label}}</li>

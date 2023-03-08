@@ -46,6 +46,7 @@ async function register(username, password) {
     return {
         username,
         roles: user.roles,
+        _id: user._id,
     };
 }
 
