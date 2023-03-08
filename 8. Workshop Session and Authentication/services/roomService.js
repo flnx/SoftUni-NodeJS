@@ -1,7 +1,7 @@
 const Room = require('../models/Room');
 
 function getAll(search) {
-    return Room.find({}).lean();
+    return Room.find({ city: { $regex: new RegExp(search, 'i') } }).lean();
 }
 
 function getById(id) {
@@ -16,7 +16,6 @@ async function create(roomData) {
         beds: Number(roomData.beds),
         imgUrl: roomData.imgUrl,
     };
-
 
     const isFieldInvalid = Object.values(room).some((v) => !v);
 

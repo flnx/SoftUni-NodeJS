@@ -2,8 +2,9 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 async function login(username, password) {
-    const user = await User.findOne({
-        username: { $regex: new RegExp(username, 'i') },
+    const user = await User.findOne({ username: username }).collation({
+        locale: 'en',
+        strength: 2,
     });
 
     if (!user) {
@@ -23,11 +24,14 @@ async function login(username, password) {
 }
 
 async function register(username, password) {
-    const isUserAlreadyTaken = await User.findOne({
-        username: { $regex: new RegExp(username, 'i') },
+    const isUserTaken = await User.findOne({
+        username: username,
+    }).collation({
+        locale: 'en',
+        strength: 2,
     });
 
-    if (isUserAlreadyTaken) {
+    if (isUserTaken) {
         throw new Error('Username already exists');
     }
 

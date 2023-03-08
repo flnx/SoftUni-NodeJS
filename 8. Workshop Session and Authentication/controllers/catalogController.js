@@ -2,11 +2,8 @@ const router = require('express').Router();
 const { getAll, getById } = require('../services/roomService');
 
 router.get('/', async (req, res) => {
-    const searchQuery = req.query.search || '';
+    const searchQuery = req.query.search;
     const rooms = await getAll(searchQuery);
-
-    const user = req.user;
-    console.log(user);
 
     res.render('catalog', {
         rooms,

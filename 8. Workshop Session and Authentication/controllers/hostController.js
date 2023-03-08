@@ -1,3 +1,4 @@
+const { hasUser } = require('../middlewares/guards');
 const { create } = require('../services/roomService');
 
 const router = require('express').Router();
