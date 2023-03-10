@@ -1,18 +1,7 @@
-const registerUser = require('../services/userService');
-const jwt = require('jsonwebtoken');
-const secret = 'secret';
-
+const { registerUser } = require('../services/userService');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    const token = req.cookies['jwt'];
-
-    const data = jwt.verify(token, secret);
-
-    req.user = data;
-
-
-
     res.render('register');
 });
 
@@ -33,10 +22,10 @@ router.post('/', async (req, res) => {
             password,
         });
 
-        const token = jwt.sign(payload, secret, { expiresIn: '4h' });
+        const token = req.signJwt(payload);
 
         res.cookie('jwt', token, { maxAge: 14400000 });
-        res.redirect('/register');
+        res.redirect('/');
     } catch (err) {
         res.render('register', {
             error: err.message,

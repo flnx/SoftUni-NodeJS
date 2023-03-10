@@ -19,7 +19,36 @@ async function registerUser({ username, password }) {
 
     return {
         username,
+        _id: user._id,
     };
 }
 
-module.exports = registerUser;
+async function loginUser({ username, password }) {
+    const user = await User.findOne({
+        username: new RegExp(username, 'i'),
+    });
+
+    if (!user) {
+        throw Error('Wrong username or password.');
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
+
+    if (!passwordMatch) {
+        throw new Error('Wrong username or password.');
+    }
+
+    return {
+        username,
+        _id: user._id,
+    };
+}
+
+async function logoutUser(username) {
+
+}
+
+module.exports = {
+    loginUser,
+    registerUser,
+};
