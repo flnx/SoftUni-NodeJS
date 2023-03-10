@@ -14,7 +14,7 @@ router.get('/accessory', (req, res) => {
 router.post('/accessory', async (req, res) => {
     try {
         await createAccessory(req.body);
-        res.redirect('/create/accessory')
+        res.redirect('/create/accessory');
     } catch (err) {
         const errorMessages = err.message.split(',');
 
@@ -26,10 +26,12 @@ router.post('/accessory', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        await createCube(req.body);
+        await createCube(req.body, req.user._id);
         res.redirect('/create');
     } catch (err) {
-        console.log(err.message);
+        res.render('/create', {
+            error: err.message,
+        });
     }
 });
 

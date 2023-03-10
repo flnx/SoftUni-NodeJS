@@ -33,6 +33,10 @@ const cubeSchema = new Schema({
             default: [],
         },
     ],
+    creatorId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Cube = mongoose.model('Cube', cubeSchema);

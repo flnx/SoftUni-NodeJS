@@ -9,7 +9,7 @@ router.get('/accessory/:cubeId', async (req, res) => {
     const cube = await getCubeById(cubeId);
     const accessories = await getAllAccessories();
 
-    res.render('attachAccessory.hbs', {
+    res.render('attachAccessory', {
         cube,
         accessories
     });
@@ -21,7 +21,6 @@ router.post('/accessory/:cubeId', async (req, res) => {
 
     try {
         await attachAccessory(accessory, cubeId);
-        
         res.redirect(`/attach/accessory/${cubeId}`)
 
     } catch(err) {

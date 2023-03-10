@@ -18,12 +18,13 @@ async function getCubeById(id) {
     return Cube.findById(id).populate('accessories').lean();
 }
 
-async function createCube(cubeData) {
+async function createCube(cubeData, creatorId) {
     const cube = {
         name: cubeData.name,
         description: cubeData.description,
         imageUrl: cubeData.imageUrl,
         difficultyLevel: Number(cubeData.difficultyLevel),
+        creatorId
     };
 
     const result = await Cube.create(cube);
