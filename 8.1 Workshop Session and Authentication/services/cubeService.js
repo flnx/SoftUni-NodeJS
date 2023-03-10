@@ -43,8 +43,12 @@ async function updateCube(cubeData, cubeId) {
     cube.difficultyLevel = Number(cubeData.difficultyLevel);
 
     await cube.save();
-    
+
     return cube;
+}
+
+async function deleteCube(cubeId) {
+    return Cube.findByIdAndRemove(cubeId);
 }
 
 module.exports = {
@@ -52,4 +56,5 @@ module.exports = {
     getAllCubes,
     getCubeById,
     updateCube,
+    deleteCube,
 };

@@ -8,6 +8,7 @@ const loginController = require('../controllers/loginController');
 const registerController = require('../controllers/registerController');
 const logoutController = require('../controllers/logoutController');
 const editController = require('../controllers/editController');
+const deleteController = require('../controllers/deleteController');
 
 const { hasUser, isGuest } = require('../middlewares/guards');
 
@@ -21,5 +22,6 @@ module.exports = (app) => {
     app.use('/register', isGuest(), registerController);
     app.use('/logout', hasUser(), logoutController);
     app.use('/edit', hasUser(), editController);
+    app.use('/delete', hasUser(), deleteController);
     app.use('*', notFoundController);
 };
