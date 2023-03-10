@@ -1,6 +1,6 @@
 <h1>Register Form</h1>
 <div class="form">
-    <form action="#" method="POST">
+    <form action="/register" method="POST">
         <label for="username">Username</label>
         <input type="text" id="username" name="username">
 
@@ -11,4 +11,7 @@
         <input type="password" id="repeatPassword" name="repeatPassword">
         <input type="submit" value="Register">
     </form>
+    {{#if error}}
+         <span class="error">{{error}}</span>
+    {{/if}}
 </div>

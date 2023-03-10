@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 
 const handlebars = hbs.create({
     extname: '.hbs',
@@ -11,4 +12,5 @@ module.exports = (app) => {
 
     app.use(express.urlencoded({ extended: true }));
     app.use('/static', express.static('static'));
+    app.use(cookieParser());
 };
