@@ -7,6 +7,7 @@ const createController = require('../controllers/createController');
 const editController = require('../controllers/editController');
 const detailsController = require('../controllers/detailsController');
 const notFoundController = require('../controllers/notFoundController');
+const logoutController = require('../controllers/logoutController');
 
 // guards
 const { isAuthenticated, isGuest } = require('../middlewares/guards');
@@ -21,5 +22,6 @@ module.exports = (app) => {
     app.use('/create', isAuthenticated(), createController);
     app.use('/edit', isAuthenticated(), editController);
     app.use('/details', detailsController);
+    app.use('/logout', logoutController);
     app.use('*', notFoundController);
 };
