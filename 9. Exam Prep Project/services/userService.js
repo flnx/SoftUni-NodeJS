@@ -27,4 +27,4 @@ async function registerUser({ username, password, rePass, email }) {
 
 module.exports = {
     registerUser,
-}
+};
