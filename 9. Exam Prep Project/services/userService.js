@@ -25,6 +25,33 @@ async function registerUser({ username, password, rePass, email }) {
     };
 }
 
+async function loginUser({ email, password }) {
+    const user = await User.findOne({
+        email: new RegExp(email, 'i'),
+    });
+
+    if (!user || !password) {
+        throw Error('Invalid username or password');
+    }
+
+    if (password.length < 6) {
+        throw Error('Password must be at least 6 characters long');
+    }
+
+    const isPassValid = await bcrypt.compare(password, user.password);
+
+    if (!isPassValid) {
+        throw Error('Invalid username or password');
+    }
+
+    return {
+        username: user.username,
+        email: user.email,
+        _id: user._id,
+    };
+}
+
 module.exports = {
     registerUser,
+    loginUser,
 };
