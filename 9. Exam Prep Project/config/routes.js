@@ -6,6 +6,7 @@ const searchController = require('../controllers/searchController');
 const createController = require('../controllers/createController');
 const editController = require('../controllers/editController');
 const detailsController = require('../controllers/detailsController');
+const notFoundController = require('../controllers/notFoundController');
 
 module.exports = (app) => {
     app.use(homeController);
@@ -16,4 +17,5 @@ module.exports = (app) => {
     app.use('/create', createController);
     app.use('/edit', editController);
     app.use('/details', detailsController);
+    app.use('*', notFoundController);
 };

@@ -11,7 +11,7 @@ async function database() {
         process.exit(1);
     }
 
-    console.log('Database connected');
+    console.log('----- DATABASE CONNECTED -----');
 }
 
 module.exports = database;
