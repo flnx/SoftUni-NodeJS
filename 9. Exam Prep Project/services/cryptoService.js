@@ -17,6 +17,10 @@ async function addNewCrypto(cryptoData, _ownerId) {
     return crypto;
 }
 
+async function getAllCryptos() {
+    return Crypto.find({}).lean().exec();
+}
+
 async function getCryptoById(id) {
     return Crypto.findById(id).lean().exec();
 }
@@ -24,4 +28,5 @@ async function getCryptoById(id) {
 module.exports = {
     addNewCrypto,
     getCryptoById,
+    getAllCryptos
 };
