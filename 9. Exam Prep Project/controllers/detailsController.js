@@ -46,7 +46,7 @@ detailsController.get('/:cryptoId/buy', isAuthenticated(), async (req, res) => {
         const isOwner = crypto._ownerId == userId;
 
         if (isOwner) {
-            throw Error('This crypto is already in your list!');
+            throw Error("You can't add this crypto in your list because you're the owner of it");
         }
 
         await findUserAndUpdateCrypto(userId, cryptoId);

@@ -25,8 +25,19 @@ async function getCryptoById(id) {
     return Crypto.findById(id).lean().exec();
 }
 
+async function searchCrypto({ searchParam, paymentMethod }) {
+    return Crypto.find()
+        .where('name')
+        .regex(new RegExp(searchParam, 'i'))
+        .where('payment')
+        .equals(paymentMethod)
+        .lean()
+        .exec();
+}
+
 module.exports = {
     addNewCrypto,
     getCryptoById,
-    getAllCryptos
+    getAllCryptos,
+    searchCrypto,
 };
