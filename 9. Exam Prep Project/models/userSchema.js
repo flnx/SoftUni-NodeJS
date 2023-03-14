@@ -10,7 +10,10 @@ const userSchema = new Schema({
         minLength: [2, 'Username must be at least 2 characters long'],
         unique: [true, 'The username is already taken'],
         required: [true, 'Username is required'],
-        validate: [validator.isAlphanumeric, 'Username must contain only numbers and letters']
+        validate: [
+            validator.isAlphanumeric,
+            'Username must contain only numbers and letters',
+        ],
     },
     email: {
         type: String,
@@ -18,13 +21,31 @@ const userSchema = new Schema({
         trim: true,
         required: [true, 'Email is required'],
         unique: [true, 'The email address is already taken'],
-        validate: [ validator.isEmail, 'Invalid Email Address'],
+        validate: [validator.isEmail, 'Invalid Email Address'],
     },
     password: {
         type: String,
-        required: [true, 'Password is required']
-    }
+        required: [true, 'Password is required'],
+    },
+    ownedCrypto: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            default: [],
+            ref: 'User',
+        },
+    ],
 });
+
+userSchema.index(
+    { ownedCrypto: 1 },
+    {
+        unique: true,
+        collation: {
+            locale: 'en',
+            strength: 2,
+        },
+    }
+);
 
 const User = mongoose.model('User', userSchema);
 

@@ -40,6 +40,11 @@ const cryptoSchema = new Schema({
         enum: ['crypto-wallet', 'credit-card', 'debit-card', 'paypal'],
         required: [true, 'Payment method is required'],
     },
+    ownerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
 });
 
 const Crypto = mongoose.model('Crypto', cryptoSchema);

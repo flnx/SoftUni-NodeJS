@@ -9,7 +9,8 @@ createController.get('/', (req, res) => {
 
 createController.post('/', async (req, res) => {
     try {
-        const result = await addNewCrypto(req.body);
+        const result = await addNewCrypto(req.body, req.user._id);
+        
         res.redirect(`/details/${result._id}`);
     } catch (err) {
         res.render('create', {

@@ -8,11 +8,12 @@ detailsController.get('/:cryptoId', async (req, res) => {
 
     try {
         const cryptoDetails = await getCryptoById(cryptoId);
+        console.log(cryptoDetails);
 
         res.render('details', {
             crypto: {
                 ...cryptoDetails,
-                price: cryptoDetails.price.toFixed(2)
+                price: cryptoDetails.price.toFixed(2),
             },
         });
     } catch (err) {
