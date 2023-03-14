@@ -1,9 +1,10 @@
 const express = require('express');
 require('dotenv').config();
 
-const expressConfig = require('./config/express');
-const routesConfig = require('./config/routes');
 const env = require('./config/serverConfig');
+const routesConfig = require('./config/routes');
+const expressConfig = require('./config/express');
+
 
 const database = require('./config/database');
 
