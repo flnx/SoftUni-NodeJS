@@ -27,7 +27,7 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'Password is required'],
     },
-    ownedCrypto: [
+    _ownedCrypto: [
         {
             type: mongoose.Schema.Types.ObjectId,
             default: [],
@@ -37,7 +37,7 @@ const userSchema = new Schema({
 });
 
 userSchema.index(
-    { ownedCrypto: 1 },
+    { _ownedCrypto: 1 },
     {
         unique: true,
         collation: {

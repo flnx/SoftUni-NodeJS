@@ -51,7 +51,12 @@ async function loginUser({ email, password }) {
     };
 }
 
+async function getUserById(id) {
+    return User.findById(id).select('_ownedCrypto').lean().exec();
+}
+
 module.exports = {
     registerUser,
     loginUser,
+    getUserById,
 };
